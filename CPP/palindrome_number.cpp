@@ -1,13 +1,14 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        long int rev = 0;
-        int temp = x;
         if(x < 0){return false;}
-        while(x){
-            rev = rev*10 + (x%10);
-            x/=10;
+        std::string temp1 = std::to_string(x);
+        size_t size = temp1.size();
+        for(size_t i = 0; i < size; i++){
+            if(temp1[i]!=temp1[size - 1 - i]){
+                return false;
+            }
         }
-    return (rev == temp);
+    return true;
     }
 };
